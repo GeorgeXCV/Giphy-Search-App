@@ -6,6 +6,7 @@ import { API_KEY } from '../utils/config'
 import Footer from './components/Footer'
 
 export default function Home(initialData) {
+  const baseurl = typeof window !== 'undefined' && window.location.hostname ? window.location.hostname : '';
   const [formInputs, setFormInputs] = useState({})
   const [searchTerm, setSearchTerm] = useState('dogs')
   const [searchResults, setSearchResults] = useState([])
@@ -56,7 +57,7 @@ export default function Home(initialData) {
               href="/search/[pid]"
               as={`/search/${searchTerm}`}>
                 <a> 
-                  {`http://localhost:3000/search/${searchTerm}`}
+                  {`${baseurl}/search/${searchTerm}`}
                 </a>
         </Link>
       </p>
